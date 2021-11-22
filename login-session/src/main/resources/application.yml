@@ -13,9 +13,10 @@ spring:
     password:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
-    show-sql: true
-    hibernate:
-      ddl-auto: create-drop
+
   decorator:
     datasource:
       p6spy.enable-logging: true
+  sql:
+    init:
+      mode: always

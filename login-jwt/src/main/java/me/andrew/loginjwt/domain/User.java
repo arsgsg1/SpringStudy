@@ -1,5 +1,6 @@
 package me.andrew.loginjwt.domain;
 
+import java.util.HashSet;
 import javax.persistence.*;
 import java.util.Set;
 import lombok.Getter;
@@ -31,7 +32,14 @@ public class User {
       name = "user_authority",
       joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")},
       inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
-  private Set<Authority> authorities;
+  private Set<Authority> authorities = new HashSet<>();
 
   protected User(){};
+
+  public User(String username, String password,
+      Set<Authority> authorities) {
+    this.username = username;
+    this.password = password;
+    this.authorities = authorities;
+  }
 }

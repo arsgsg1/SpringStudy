@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS user_authority;
+DROP TABLE IF EXISTS authority;
 DROP TABLE IF EXISTS user;
 CREATE TABLE user (
   user_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -6,11 +8,9 @@ CREATE TABLE user (
   nickname varchar(50),
   activated boolean
 );
-DROP TABLE IF EXISTS authority;
 CREATE TABLE authority(
   authority_name varchar(50) NOT NULL PRIMARY KEY
 );
-DROP TABLE IF EXISTS user_authority;
 CREATE TABLE user_authority(
     user_authority_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_id BIGINT NOT NULL,
